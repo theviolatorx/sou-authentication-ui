@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Formik } from 'formik';
+import { Formik, FormikConsumer } from 'formik';
 import * as Yup from 'yup';
 
 // import api from '../../services/api';
 
 import FormStep1 from '../../components/FormStep1';
 import FormStep2 from '../../components/FormStep2';
-// import FormStep3 from '../../components/FormStep3';
+import FormStep3 from '../../components/FormStep3';
+import api from '../../services/api';
 // import FormStep4 from '../../components/FormStep4';
 // import FormStep5 from '../../components/FormStep5';
 // import FormStep6 from '../../components/FormStep6';
@@ -28,7 +29,12 @@ class Cadastro extends Component {
 
   handlePrev = () => {
     this.setState({ step: this.state.step - 1 });
+    //console.log(this.state.forms);
   };
+
+ // handleSubmit = () => {
+   // api.post('collaborator', forms);
+ // }
 
   getValidationShema = () => {
     return Yup.object().shape({
@@ -44,7 +50,7 @@ class Cadastro extends Component {
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
-        gender: Yup.string()
+        /*gender: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
@@ -59,19 +65,7 @@ class Cadastro extends Component {
         raca: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
-        .required('Required'),
-        marital_status: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
-        blood_type: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
-        organ_donation: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required')
+        .required('Required'),*/
 
          //cpf: Yup.int()
          //.email('Invalid email')
@@ -97,13 +91,10 @@ class Cadastro extends Component {
           firstName: '',
           lastName: '',
           social_name: '',
-          gender: '',
-          place_of_birth: '',
-          nationality: '',
-          raca: '',
-          marital_status: '',
-          blood_type: '',
-          organ_donation: ''
+          //gender: '',
+          //place_of_birth: '',
+          //nationality: '',
+          //raca: '',
           //cpf: '',
           //email: ''
         }}
@@ -111,7 +102,9 @@ class Cadastro extends Component {
         render={FormStep1}
       />
     ) : step === 2 ? (
-      <Formik onSubmit={this.handleNext} render={FormStep2} />
+      <Formik onSubmit={this.handleNext}   render={ formikProps => <FormStep2 {...formikProps} handlePrev={this.handlePrev} />} />
+      ) : step === 3 ? (
+      <Formik onSubmit={this.handleNext} render={FormStep3} />
     ) : (
       ''
     );
