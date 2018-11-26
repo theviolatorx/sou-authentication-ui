@@ -60,6 +60,18 @@ class Cadastro extends Component {
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
+        marital_status: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required'),
+        blood_type: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required'),
+        organ_donation: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required')
 
          //cpf: Yup.int()
          //.email('Invalid email')
@@ -89,6 +101,9 @@ class Cadastro extends Component {
           place_of_birth: '',
           nationality: '',
           raca: '',
+          marital_status: '',
+          blood_type: '',
+          organ_donation: ''
           //cpf: '',
           //email: ''
         }}
