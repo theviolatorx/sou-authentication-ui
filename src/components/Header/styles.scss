@@ -1,0 +1,33 @@
+.main_header {
+    background: #777;
+    padding: 3px;
+  }
+  
+  .main_header_logo {
+    flex-basis: 75%;
+  }
+  
+  .main_header_logo_img {
+    color: #fff;
+  }
+  
+  .main_header_user_icons {
+    flex-basis: 25%;
+    margin-top: 10px;
+  }
+  
+  .main_header_user_icons_icon {
+    font-size: 1.4em;
+    margin-left: 10px;
+    color: #fff;
+  }
+  
+  .main_header_user_icons p {
+    color: #fff;
+    font-size: 1.2em;
+  }
+  
+  .main_header_user_icons_info {
+    float: left;
+    margin-right: 10px;
+  }
