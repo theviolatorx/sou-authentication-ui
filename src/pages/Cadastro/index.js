@@ -104,7 +104,8 @@ class Cadastro extends Component {
     ) : step === 2 ? (
       <Formik onSubmit={this.handleNext}   render={ formikProps => <FormStep2 {...formikProps} handlePrev={this.handlePrev} />} />
       ) : step === 3 ? (
-      <Formik onSubmit={this.handleNext} render={FormStep3} />
+      <Formik onSubmit={this.handleNext}   render={ formikProps => <FormStep3 {...formikProps} handlePrev={this.handlePrev} />} />
+
     ) : (
       ''
     );
